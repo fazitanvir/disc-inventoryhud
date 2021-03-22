@@ -1,5 +1,6 @@
 # disc-inventoryhud
 disc-inventoryhud remake
+preview https://streamable.com/buueyg
 
 requirements es_extended,disc-base,disc-ammo.
 from here https://github.com/DiscworldZA/gta-resources
