@@ -5,6 +5,8 @@ preview https://streamable.com/buueyg
 requirements es_extended,disc-base,disc-ammo.
 from here https://github.com/DiscworldZA/gta-resources
 
+es_extended modify version https://github.com/wtftanveer/es_extended.git
+
 orginal inventoryhud from https://github.com/DiscworldZA/gta-resources
 for es_extended v1 modification nedded
 I will upload modify es_extended later.
