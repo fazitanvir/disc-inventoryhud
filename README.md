@@ -8,11 +8,11 @@ from here https://github.com/DiscworldZA/gta-resources
 es_extended modify version https://github.com/wtftanveer/es_extended.git
 
 orginal inventoryhud from https://github.com/DiscworldZA/gta-resources
-for es_extended v1 modification nedded
+
 I will upload modify es_extended later.
 modify by wtftanveer#6733
 
-for any support join discord 
+for any support join discord : 
 
 https://discord.gg/ByduBDA
 
