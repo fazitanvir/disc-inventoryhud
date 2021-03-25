@@ -1,0 +1,1035 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:600&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Balthazar&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap');
+
+@font-face {
+    font-family: 'Verdana';
+    src: url('../verdana.ttf');
+}
+
+@font-face {
+    font-family: 'Verdana Bold';
+    src: url('../VerdanaBold.ttf');
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: Verdana;
+  text-transform: none;
+  color: white;
+}
+
+
+body {
+  background-color: rgba(0, 0, 0, 0.233);
+  background-color: transparent !important;
+  overflow: hidden
+}
+ 
+body .ui {
+  position: relative;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.233);
+  z-index: 0;
+  overflow: hidden;
+  display: none
+}
+
+body .ui .inv-log {
+  height: 15%;
+  width: 34%;
+  position: absolute;
+  bottom: 1%;
+  right: 2.5%;
+  text-align: right;
+  -webkit-box-shadow: 1px 1px 57px rgba(0, 0, 0, 0.0);
+  box-shadow: 1px 1px 57px rgba(0, 0, 0, 0.0);
+  background-color: rgba(0, 0, 0, 0);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 10px;
+  color: #9d9d9d;
+  font-size: 10.5px
+}
+
+body .ui .slot.search-non-match{
+  opacity:0.25;
+  -webkit-transition:opacity ease-in 0.1s;
+  transition:opacity ease-in 0.1s
+  border: 0px solid #666666;
+}
+
+body .ui .inventory #controls .controls-div .close-ui {
+  background-color: rgba(150, 11, 11, 0.4)
+}
+
+body .ui .inventory #controls .controls-div .close-ui:hover {
+  background-color: rgba(150, 11, 11, 0.4)
+}
+
+::placeholder { 
+  color: #ffffff;
+  opacity: 1; 
+}
+
+
+body .ui .inventory {
+  position: absolute;
+  left: 48%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: fit-content;
+  min-width: 75%;
+  max-width: 75%;
+  height: 50%;
+  box-shadow: 1px 1px 57px rgba(0, 0, 0, 0.0);
+  background-color: rgba(0, 0, 0, 0.0);
+}
+
+body .ui .inventory .inventory-wrapper {
+  display: inline-block;
+  height: 90%;
+  width: 40%;
+  overflow: visible;
+  position: absolute;
+}
+
+body .ui .inventory .inventory-wrapper:last-child {
+  right: -5%;
+  left: auto
+}
+
+body .ui .inventory .inventory-wrapper #inventoryOne,
+body .ui .inventory .inventory-wrapper #inventoryTwo {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: grid;
+  grid-template-columns: 19.35% 19.35% 19.35% 19.35% 19.35%;
+  grid-gap: 0.3%;
+  width: 100.5%;
+  min-width: 100.5%;
+  grid-auto-rows: 28%;
+}
+
+body .ui .inventory .inventory-wrapper #inventoryOne.disabled,
+body .ui .inventory .inventory-wrapper #inventoryTwo.disabled {
+  transition: filter ease-in 0.15s;
+}
+
+body .ui .inventory .inventory-wrapper .inv-label {
+  font-family: 'Lato', monospace;
+  font-weight: bold;
+  font-size: 15px;
+  width: 100%;
+  letter-spacing: 0.1vh;
+  overflow:hidden;
+  text-transform:uppercase;
+
+
+}
+ 
+body .ui .inventory .inventory-wrapper .inv-id {
+  font-family: 'Lato', monospace;
+  letter-spacing: 0.1vh;
+  font-size: 12px;
+  text-align: left;
+}
+ 
+ body .ui .inventory .inventory-wrapper .inv-slots {
+  position: absolute;
+  overflow: scroll;
+  padding-bottom: 20px;
+  overflow:hidden;
+
+ }
+
+body .ui .inventory .inventory-wrapper .left-data { /* TAMAÑO WEIGHT PESO */
+  width: 100%;
+  font-size: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  top: -60px;
+  padding-left: 5px;
+  text-transform: none !important;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end
+}
+
+body .ui .inventory .inventory-wrapper .left-data .inv-id {
+  text-align: left
+}
+
+body .ui .inventory .inventory-wrapper .right-data .inv-id {
+  left: 0;
+  margin-right: auto
+}
+
+body .ui .inventory .inventory-wrapper .left-data .inv-slots {
+  text-align: left
+}
+
+body .ui .inventory .inventory-wrapper .left-data .inv-weight {
+  text-align: center
+}
+
+body .ui .inventory .inventory-wrapper .right-data {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  top: -60px;
+  padding-left: 5px;
+  text-transform: none !important;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  right: 0;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start
+}
+
+body .ui .inventory .inventory-wrapper .right-data .inv-label {
+  text-align: left
+}
+
+body .ui .inventory .inventory-wrapper .right-data .inv-slots {
+  left: 0;
+  margin-right: auto
+}
+
+body .ui .inventory #controls {
+  display: inline-block;
+  width: 20.0%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  color: #ffffff;
+  top: -10%;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+body .ui .inventory #controls .info-div {
+  text-align: center;
+  padding-right: 65px;
+  width: 100%;
+  position: absolute;
+  left: 50%;
+  top: 15%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%)
+}
+
+body .ui .inventory #controls .info-div .ammoIcon {
+  width: 10px;
+  height: 10px
+}
+
+body .ui .inventory #controls .info-div .moneyIcon {
+  width: 1px;
+  height: 1px
+}
+
+body .ui .inventory #controls .second-info-div {
+  text-align: center;
+  padding: 10px;
+  background-color: rgba(20, 11, 20, 0.30);
+  width: 50%;
+  position: absolute;
+  left: 50%;
+  top: 15%;
+  color: #ffffff;
+  transform: translate(-50%, -50%);
+  border: 0px solid #ff66ff;
+}
+
+body .ui .inventory #controls .second-info-div .ammoIcon {
+  width: 10px;
+  height: 10px
+}
+
+body .ui .inventory #controls .second-info-div .moneyIcon {
+  width: 1px;
+  height: 1px
+}
+
+body .ui .inventory #controls .hidden {
+  display: none
+}
+
+body .ui .inventory #controls .controls-div {
+  position: absolute;
+  left: 50%;
+  color: #ffffff;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  font-size: 13px
+}
+
+body .ui .inventory #controls .controls-div .control {
+  width: 110%;
+  height: 45px;
+  background-color: rgba(21, 13, 31, 0.349);
+  margin-bottom: 10px;
+  text-align: center;
+  color: #ffffff;
+  vertical-align: middle;
+  line-height: 40px;
+  opacity: 0.7;
+}
+
+body .ui .inventory #controls .controls-div .control:last-child {
+  margin-bottom: 0
+}
+
+body .ui .inventory #controls .controls-div .control.hover {
+    border-color: rgba(72, 139, 250 , 2.0);
+    transition: 0.1s;
+}
+
+body .ui .inventory #controls .controls-div .control.disabled {
+  transition: all ease-in 0.15s;
+  filter: brightness(60%);
+  background-color: rgba(75, 0, 0, 0.75);
+}
+
+body .ui .inventory #controls .money-controls-div {
+  position: absolute;
+  right: 0%;
+  top: 37%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 30%
+}
+
+body .ui .inventory #controls .money-controls-div .control {
+  width: 100%;
+  height: 40px;
+  background-color: #414141;
+  margin-bottom: 10px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 40px;
+  border: 2px solid #666;
+  border-radius: 5px;
+  font-size: 13px
+}
+
+body .ui .inventory #controls .controls-div .control:last-child {
+  margin-bottom: 0
+}
+
+body .ui .inventory #controls .controls-div .control.hover {
+  -webkit-transition: all ease-in 0.15s;
+  transition: all ease-in 0.15s;
+  -webkit-filter: brightness(60%);
+  filter: brightness(60%)
+}
+
+body .ui .inventory #controls .controls-div .control.disabled {
+  background-color: rgba(0, 0, 0, 0) !important;
+  -webkit-transition: all ease-in 0.15s;
+  transition: all ease-in 0.15s
+}
+
+body .ui .inventory #controls .controls-div #count, body .ui .inventory #controls .controls-div #search {
+  outline: none;
+  font-size: 13px;
+  border: none
+}
+
+body .ui .inventory #controls .controls-div .close-ui {
+  font-size: 13px;
+  background-color: rgba(150, 11, 11, 0.4)
+  
+}
+
+body .ui .inventory #controls .controls-div .close-ui:hover {
+  font-size: 13px;
+  background-color: rgba(150, 11, 11, 0.4)
+}
+
+.Information {
+  display: none;
+  text-align: center;
+  padding: 2px;
+  padding-top: 7%;
+  width: 30%;
+  position: absolute;
+  bottom: 4%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  color: white;
+  
+}
+
+.weight-div {
+  display: none;
+  text-align: center;
+  padding: 2px;
+  padding-top: 10%;
+  width: 30%;
+  position: absolute;
+  bottom: 4%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  
+}
+
+.Information hr, .weight-div hr {
+border: none;
+}
+
+.Information .info-name, .info-name {
+font-size: 15px;
+border-bottom: 2px solid #ffffff;
+}
+
+.Information .info-uniqueness, .Information .info-meta, .info-meta {
+font-size: 10px;
+margin-top: 10px;
+}
+
+.Information .info-uniqueness .meta-key, .Information .info-uniqueness .meta-val, .Information .info-meta .meta-key, .Information .info-meta .meta-val, .info-uniqueness .meta-key, body .ui .inventory #controls .weight-div .info-uniqueness .meta-val, body .ui .inventory #controls .weight-div .info-meta .meta-key, body .ui .inventory #controls .weight-div .info-meta .meta-val {
+display: inline-block;
+}
+
+.Information .info-desc, .info-desc {
+font-size: 11px;
+}
+
+.Information .info-weight, .info-weight {
+  font-size: 10px;
+  }
+
+.Information .tooltip-weight, body .ui .inventory #controls .weight-div .tooltip-weight {
+font-size: 10px;
+}
+
+body .ui input::-webkit-outer-spin-button,
+body .ui input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0
+}
+
+body .ui input[type=number] {
+  -moz-appearance: textfield;
+  border: 0px solid #ff66ff;
+}
+
+body .ui .slot {
+  float: left;
+  height: 100%;
+  background-color:rgba(70,70,70,0.1);
+  border: 1px solid rgba(220,220,220,0.1);
+  position: relative;
+  transition: filter ease-in 0.15s;
+  overflow: hidden;
+box-shadow: 0px -24px 0px rgba(20,10,20,0.5) inset; 
+text-transform:uppercase;
+}
+
+body .ui .slot.slot-template {
+  display: none
+}
+
+body .ui .slot:hover {
+  opacity:0.6;
+  border-color: rgba(255,255,255,0.3);
+  transition: 0.2s;
+}
+
+body .ui .slot.temporary {
+  background-color: rgba(255, 0, 0, 0.75) !important
+}
+
+body .ui .slot.storage {
+  background-color: rgba(0, 45, 71, 0.38) !important
+}
+
+body .ui .slot.evidence {
+  background-color: rgba(71, 48, 0, 0.38) !important
+}
+
+body .ui .slot.player {
+  background-color: rgba(71, 0, 61, 0.38) !important
+}
+
+body .ui .slot.store {
+  background-color: rgba(71, 0, 61, 0.38) !important
+}
+
+body .ui .slot.orig-dragging {
+  background-color: rgba(49, 49, 49, 0.38) !important
+}
+
+body .ui .slot.error {
+  background-color: rgba(255, 0, 0, 0.38)
+}
+
+body .ui .slot.dragging {
+  background-color: transparent !important;
+  border: none !important
+}
+
+body .ui .slot.dragging .item {
+  min-width: 135px !important
+}
+
+body .ui .slot.dragging .item-name {
+  background-color: transparent !important;
+  border-top: none !important
+}
+
+body .ui .slot.dragging .item-count {
+  display: none !important
+}
+
+body .ui .slot.dragging .item-keybind {
+  display: none !important
+}
+
+body .ui .slot .item,
+body .ui .slot .item-other {
+  width: 100%;
+  min-width: 100%;
+  height: 132px;
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+
+body .ui .slot .item .item-keybind,
+body .ui .slot .item-other .item-keybind {
+  position:absolute;
+  background-color:white;
+  padding:5px;
+  color:black;
+  font-size:8px;
+  font-weight:bold;
+  margin-left:2px;
+  margin-top:2px;
+  opacity:0.9;
+}
+
+body .ui .slot .item .item-name,
+body .ui .slot .item-other .item-name {
+  text-align:center;
+  width:110px;
+  font-size:9px;
+  font-family: 'Lato', monospace;
+  position:absolute;
+  bottom:11px;
+  color:white;
+
+  text-align:center;
+  text-transform:uppercase;
+}
+
+body .ui .slot .item .item-count,
+body .ui .slot .item-other .item-count {
+  color: white;
+
+  position: absolute;
+  top: 0;
+  text-align: right;
+  right: 5px;
+  font-size: 0.8vh;
+  height: 20px;
+  z-index: 500;
+}
+
+body .ui .slot .item .item-price,
+body .ui .slot .item-other .item-price {
+  position: absolute;
+  top: 0;
+  text-align: left;
+  left: 5px;
+  height: 20px;
+  font-size: 10px;
+  z-index: 500;
+  color: #13FF00;
+}
+
+body .ui .inventory-wrapper::-webkit-scrollbar-track,
+body .ui #inventoryOne::-webkit-scrollbar-track,
+body .ui #inventoryTwo::-webkit-scrollbar-track,
+body .ui #debugDiv::-webkit-scrollbar-track {
+  background-color: none;
+  border: none
+}
+
+body .ui .inventory-wrapper::-webkit-scrollbar,
+body .ui #inventoryOne::-webkit-scrollbar,
+body .ui #inventoryTwo::-webkit-scrollbar,
+body .ui #debugDiv::-webkit-scrollbar {
+  width: 5px;
+  background-color: rgba(0, 0, 0, 0)
+}
+
+body .ui .inventory-wrapper::-webkit-scrollbar-thumb,
+body .ui #inventoryOne::-webkit-scrollbar-thumb,
+body .ui #inventoryTwo::-webkit-scrollbar-thumb,
+body .ui #debugDiv::-webkit-scrollbar-thumb {
+  background-color: #60619c;
+}
+
+body .ui .nearbyPlayerButton {
+  width: 100%;
+  margin-top: 5px;
+  display: block;
+  text-decoration: none;
+  padding: 2px;
+  color: rgba(255, 255, 255, 1);
+  background-color: rgba(235, 235, 235, 0.03);
+  text-shadow: none;
+  font-size: 14px !important;
+  outline: none;
+  text-transform: none;
+  text-align: center;
+  line-height: 30px;
+  border: none;
+}
+
+
+body .ui .nearbyPlayerButton:hover {
+  background-color: rgba(235, 235, 235, 0.03);
+}
+
+body .ui .money {
+  padding: 3px
+}
+
+body .near-players-wrapper {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.65);
+  z-index: 0;
+  overflow: hidden;
+  display: none;
+}
+
+body .near-players-wrapper .near-players-list {
+  width: 500px;
+  height: fit-content;
+  background-color: rgba(235, 235, 235, 0.03);
+  border-style: solid;
+  border-color: rgba(255,255,255,0.1);
+  border-width: 1px 1px 1px 1px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 1000;
+}
+
+body .near-players-wrapper .near-players-list .popup-header {
+  background: rgba(0, 0, 0, 1);
+}
+
+body .near-players-wrapper .near-players-list .popup-header .popup-header-text {
+  display: inline-block;
+  width: 90%;
+  padding: 10px
+}
+
+body .near-players-wrapper .near-players-list .popup-header .exit-popup {
+  display: inline-block;
+  width: fit-content;
+  margin-left: auto;
+  padding: 10px;
+  width: 10%;
+  text-align: right;
+  color: #9d9d9d;
+}
+
+body .near-players-wrapper .near-players-list .popup-header .exit-popup:hover {
+  transition: all ease-in 0.15s;
+  filter: brightness(0.7);
+}
+
+body .near-players-wrapper .near-players-list .popup-body {
+  padding: 5px;
+  max-height: 660px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+body .near-players-wrapper .near-players-list .popup-body::-webkit-scrollbar-track {
+  background-color: none;
+  border: none
+}
+
+body .near-players-wrapper .near-players-list .popup-body::-webkit-scrollbar {
+  width: 10px;
+  background-color: rgba(0, 0, 0, 0)
+}
+
+body .near-players-wrapper .near-players-list .popup-body::-webkit-scrollbar-thumb {
+  background-color: rgba(235, 235, 235, 0.03);
+    border-style: solid;
+    border-color: rgba(255,255,255,0.1);
+    border-width: 1px 1px 1px 1px;
+}
+
+body .near-players-wrapper .near-players-list .popup-body .player,
+body .near-players-wrapper .near-players-list .popup-body .cashchoice,
+body .near-players-wrapper .near-players-list .popup-body .cashstore,
+body .near-players-wrapper .near-players-list .popup-body .cashtake {
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  background-color: rgba(235, 235, 235, 0.03); /* 0,02 */
+  border-style: solid;
+  border-color: rgba(255,255,255,0.1);
+  border-width: 1px 1px 1px 1px;
+  margin-bottom: 5px;
+}
+
+body .near-players-wrapper .near-players-list .popup-body .player:hover,
+body .near-players-wrapper .near-players-list .popup-body .cashchoice:hover,
+body .near-players-wrapper .near-players-list .popup-body .cashstore:hover,
+body .near-players-wrapper .near-players-list .popup-body .cashtake:hover {
+  filter: brightness(0.6);
+  transition: all ease-in 0.15s;
+}
+
+body .near-players-wrapper .near-players-list .popup-body .player:last-child,
+body .near-players-wrapper .near-players-list .popup-body .cashchoice:last-child,
+body .near-players-wrapper .near-players-list .popup-body .cashstore:last-child,
+body .near-players-wrapper .near-players-list .popup-body .cashtake:last-child {
+  margin-bottom: 0 !important
+} 
+
+#action-bar {
+  display: none;
+  position: absolute;
+  bottom: 10%;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  width: fit-content;
+  z-index: 105;
+ }
+
+
+ #action-bar .slot {
+  position: relative;
+  float: left;
+  width: 10.5vh;
+  height: 13.5vh;
+  text-align:center;
+  border: 1px solid rgba(220,220,220,0.1);
+  background-color:rgba(70,70,70,0.1);
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  margin:1px;
+  box-shadow: 0px -23px 0px rgba(20,10,20,0.3) inset; 
+  text-transform:uppercase;
+ }
+ 
+ #action-bar .slot.used {
+   background-color: rgba(49, 49, 49, 0.38);
+ }
+ 
+ #action-bar .slot.empty-used {
+   background-color: rgba(255, 0, 0, 0.38);
+ }
+ 
+ #action-bar .slot .item {
+   width: 100%;
+   min-width: 110px;
+   height: 120px;
+   background-size: 70%;
+   background-repeat: no-repeat;
+   background-position: center center;
+ }
+ 
+ #action-bar .slot .item .item-keybind {
+  position:absolute;
+  background-color:white;
+  padding:5px;
+  color:black;
+  font-size:11px;
+  font-weight:bold;
+  margin-left:2px;
+  margin-top:2px;
+  opacity:0.9;
+ }
+ 
+ #action-bar .slot .item .item-name {
+  text-align:center;
+  width:110px;
+  font-size:8px;
+  position:absolute;
+  bottom:7px;
+  color:white;
+  text-transform:uppercase;
+
+ }
+ 
+ #action-bar .slot .item .item-count {
+  position: absolute;
+  top:0.3vh;
+  right: 0.3vw;
+  color: #ffffff;
+  text-align: right;
+  font-size: 10px;
+ }
+
+ .used-item-slot {
+  position: absolute;
+  right: 50px;
+  bottom: 50%;
+  height: 100px;
+  width: 110px;
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-style: solid;
+  border-width: 1px 1px 1px 1px;
+  opacity: 1.0;
+}
+
+#used-item-image {
+  height: 100px;
+  width: 110px;
+  background-image: url(img/used-item.png);
+  background-repeat: no-repeat;
+  background-size: 80%;
+  background-position-x: 0;
+}
+
+.added-item-slot {
+  position: absolute;
+  right: 35%;
+  bottom: 15%;
+  height: 100px;
+  width: 110px;
+  background-color: rgba(124, 124, 124, 0.356);
+  border-style: solid;
+  border-color: rgba(255,255,255,0.2);
+  border-width: 1px 1px 1px 1px;
+}
+
+#added-item-image {
+  height: 100px;
+  width: 110px;
+  background-image: url(img/added-item.png);
+  background-repeat: no-repeat;
+  background-size: 80%;
+  background-position-x: 0;
+}
+
+#used-item-image {
+  height: 100px;
+  width: 110px;
+  background-image: url(img/used-item.png);
+  background-repeat: no-repeat;
+  background-size: 80%;
+  background-position-x: 0;
+}
+
+#removed-item-image {
+  height: 100px;
+  width: 110px;
+  background-image: url(img/removed-item.png);
+  background-repeat: no-repeat;
+  background-size: 80%;
+  background-position-x: 0;
+}
+
+.item-bg {
+  height: 100px;
+  width: 110px;
+  background-repeat: no-repeat;
+  background-size: 60%;
+  background-position: center;
+}
+
+
+.label {
+  background-color: rgba(14, 14, 14, 0.5);
+  font-size: 9px;
+  align-items: center;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 15px;
+  left: 0;
+  z-index: 500;
+}
+
+#iLabel {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: 400;
+}
+
+
+.buttondude {
+  width: 110%;
+  height: 45px;
+  background-color: rgba(21, 13, 31, 0.486);
+  margin-bottom: 10px;
+  text-align: center;
+  color: #ffffff;
+  vertical-align: middle;
+  line-height: 40px;
+  opacity: 0.7;
+}
+
+.closeUi {
+  width: 110%;
+  height: 45px;
+  background-color: rgba(126, 16, 16, 0.562); /* rgba(20, 20, 20, 0.5) */
+  margin-bottom: 10px;
+  text-align: center;
+  color: #ffffff;
+  vertical-align: middle;
+  line-height: 40px;
+  opacity: 0.7;
+}
+
+#UseBar {
+  position: absolute;
+  width: 31%;
+  margin-left:46.5%;
+  float:left;
+  display:none;
+  overflow-y:hidden;
+  height:45%;
+  margin-top:39%;
+}
+
+.item2  {
+  position: relative;
+  float: left;
+  width: 110px;
+  height: 100px;
+  text-align:center;
+  border: 1px solid rgba(220,220,220,0.1);
+  background-color:rgba(70,70,70,0.1);
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  margin:1px;
+  text-transform:uppercase;
+}
+
+.UseBarHead {
+  position:absolute;
+  background-color:white;
+  padding:3px;
+  color:black;
+  font-size:8px;
+  font-weight:bold;
+  margin-left:2px;
+  margin-top:2px;
+  opacity:0.9;
+}
+
+.itemname2 {
+  text-align:center;
+  width: 110px;
+  font-size:8px;
+  position:absolute;
+  bottom:0px;
+  color:white;
+  background: rgba(1,5,1,0.6);
+  text-transform:uppercase;
+
+}
+
+.itemimage {
+  width: 100px;
+  height: 100px;
+  padding: 5px;
+  -webkit-transition: opacity 0.2s ease;
+  -moz-transition: opacity 0.2s ease;
+  -ms-transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease;
+  opacity: 1;
+}
+
+
+h2 {
+  margin-top: -8px;
+}
+
+.DispInfo {
+  margin: 5px;
+  font-weight: 0;
+  font-size: 12px;
+}
+
+hr {
+  opacity: 0.2;
+}
+
+
+
+#action-bar .slot .item .item-count {
+  position: absolute;
+  top: 0;
+  text-align: right;
+  right: 5px;
+  height: 10px;
+  font-size: 13px;
+  z-index: 500
+}
+
+
+body .ui .slot .item .item-qua {
+  text-align:center;
+  font-size:7px;
+  position:absolute;
+  height: 10px;
+  bottom:0px;
+  color:white;
+  line-height: 0.9vh;
+  left: -5px;
+  background: rgba(111,195,111,0.9);
+}
